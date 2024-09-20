@@ -74,6 +74,11 @@ fn init() -> State{
 
             if window.get_hide_done_items(){
                 window.set_todo_model(
+                    Rc::new(FilterModel::new(window.get_todo_model(),|e| !e.checked)).into(),
+                );
+            }
+            if window.get_is_sort_by_name(){
+                window.set_todo_model(
                     Rc::new(SortModel::new(window.get_todo_model(), |lhs, rhs| {
                         lhs.title.to_lowercase().cmp(&rhs.title.to_lowercase())
                     }))
