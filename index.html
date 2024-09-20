@@ -1,0 +1,10 @@
+<html>
+    <body>
+        <script>
+            import init from 'pkg/todo_tasks_lib.js';
+            init().finally(()=> {
+                document.getElementById("spinner").remove();
+            });
+        </script>
+    </body>
+</html>
